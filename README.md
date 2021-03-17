@@ -3,7 +3,7 @@ Using Python libraries to perform web scrapping
 
 #### A part of Summer Analytics project conducted by IIT Guwawati(April, 2020)
 
-#### Purpose- TO Scrape the following table in https://en.wikipedia.org/wiki/Harvard_University using Python
+#### Purpose- To Scrape the following table in https://en.wikipedia.org/wiki/Harvard_University using Python
 ![Web scrap](https://user-images.githubusercontent.com/80466173/111434878-15d94680-8726-11eb-9a42-f618d151e2c3.PNG)
 
 
@@ -27,6 +27,10 @@ req = requests.get("https://en.wikipedia.org/wiki/Harvard_University")
 In an HTML web page, every element can have an id attribute assigned. As the name already suggests, that id attribute makes the element uniquely identifiable on the page. You can begin to parse your page by selecting a specific element by its ID.
 
 Switch back to developer tools and identify the HTML object that contains the required demographic table. Explore by hovering over parts of the page and using right-click to Inspect.
+
+from bs4 import BeautifulSoup
+soup = BeautifulSoup(req.content, 'html.parser')
+table_html=(soup.find_all('table',{'class':"wikitable"}))
 
  #### Part 4: Create dataframe
  
